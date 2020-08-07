@@ -7,15 +7,15 @@
         <collection property="BaseResultMap" ofType="com.example.demo.entity.User">
             <!--            <result column="role_id" property="roleId"/>-->
             <!--            <result column="permit_id" property="permitId"/>-->
-            <result column="id" property="id" />
-            <result column="user_name" property="userName" />
-            <result column="real_name" property="realName" />
-            <result column="password" property="password" />
+            <result column="id" property="id"/>
+            <result column="user_name" property="userName"/>
+            <result column="real_name" property="realName"/>
+            <result column="password" property="password"/>
         </collection>
     </resultMap>
     <sql id="Base_Column_List">
-    id, role_name
-  </sql>
+        id, role_name
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -23,13 +23,13 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from role
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from role
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.example.demo.entity.Role">
-    insert into role (id, role_name)
-    values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR})
-  </insert>
+        insert into role (id, role_name)
+        values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR})
+    </insert>
     <insert id="insertSelective" parameterType="com.example.demo.entity.Role">
         insert into role
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -59,11 +59,11 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Role">
-    update role
-    set role_name = #{roleName,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="getUserByRole" resultMap="BaseResultMap" parameterType="User">
-    select a.* from sys_user a inner join sys_role b on a.role = b.id where b.id = #{id}
-  </select>
+        update role
+        set role_name = #{roleName,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="getUserByRole" resultMap="BaseResultMap" parameterType="User">
+        select a.* from sys_user a inner join sys_role b on a.role = b.id where b.id = #{id}
+    </select>
 </mapper>

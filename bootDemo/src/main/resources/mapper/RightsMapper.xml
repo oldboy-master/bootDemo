@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.mapper.RightsMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Rights" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="rights_name" property="rightsName" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, rights_name
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from rights
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from rights
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.example.demo.entity.Rights" >
-    insert into rights (id, rights_name)
-    values (#{id,jdbcType=INTEGER}, #{rightsName,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.entity.Rights" >
-    insert into rights
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="rightsName != null" >
-        rights_name,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="rightsName != null" >
-        #{rightsName,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Rights" >
-    update rights
-    <set >
-      <if test="rightsName != null" >
-        rights_name = #{rightsName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Rights" >
-    update rights
-    set rights_name = #{rightsName,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+<mapper namespace="com.example.demo.mapper.RightsMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.Rights">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="rights_name" property="rightsName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, rights_name
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from rights
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from rights
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.example.demo.entity.Rights">
+        insert into rights (id, rights_name)
+        values (#{id,jdbcType=INTEGER}, #{rightsName,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.example.demo.entity.Rights">
+        insert into rights
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="rightsName != null">
+                rights_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="rightsName != null">
+                #{rightsName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Rights">
+        update rights
+        <set>
+            <if test="rightsName != null">
+                rights_name = #{rightsName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Rights">
+        update rights
+        set rights_name = #{rightsName,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>
