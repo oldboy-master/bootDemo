@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("selectByPrimaryKeyss")
+    @RequestMapping("selectByPrimaryKey")
     public User selectByPrimaryKey(int id) {
         return userService.selectByPrimaryKey(id);
     }
