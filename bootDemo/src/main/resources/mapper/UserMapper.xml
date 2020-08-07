@@ -8,8 +8,8 @@
         <result column="password" property="password" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, user_name, real_name, password
-  </sql>
+        id, user_name, real_name, password
+    </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -17,15 +17,15 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from user
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.example.demo.entity.User">
-    insert into user (id, user_name, real_name,
-      password)
-    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR},
-      #{password,jdbcType=VARCHAR})
-  </insert>
+        insert into user (id, user_name, real_name,
+        password)
+        values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR})
+    </insert>
     <insert id="insertSelective" parameterType="com.example.demo.entity.User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -73,10 +73,10 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.User">
-    update user
-    set user_name = #{userName,jdbcType=VARCHAR},
-      real_name = #{realName,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update user
+        set user_name = #{userName,jdbcType=VARCHAR},
+        real_name = #{realName,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>
