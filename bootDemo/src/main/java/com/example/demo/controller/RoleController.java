@@ -16,7 +16,7 @@ public class RoleController {
     @Autowired
     RoleService roleService;
 
-    @RequestMapping("getUserByRoless")
+    @RequestMapping("getUserByRole")
     public List<User> getUserByRole(int id) {
         return roleService.getUserByRole(id);
     }
