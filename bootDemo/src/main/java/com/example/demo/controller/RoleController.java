@@ -17,7 +17,7 @@ public class RoleController {
     RoleService roleService;
 
     @RequestMapping("getUserByRole")
-    public List<User> getUserByRole(int id) {
-        return roleService.getUserByRole(id);
+    public List<User> getUserByRole(int id, int userId) {
+        return roleService.getUserByRole(id, userId);
     }
 }

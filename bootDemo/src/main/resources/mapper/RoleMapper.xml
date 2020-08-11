@@ -4,18 +4,13 @@
     <resultMap id="BaseResultMap" type="com.example.demo.entity.Role">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
-        <collection property="BaseResultMap" ofType="com.example.demo.entity.User">
-            <!--            <result column="role_id" property="roleId"/>-->
-            <!--            <result column="permit_id" property="permitId"/>-->
-            <result column="id" property="id"/>
-            <result column="user_name" property="userName"/>
-            <result column="real_name" property="realName"/>
-            <result column="password" property="password"/>
-        </collection>
     </resultMap>
     <sql id="Base_Column_List">
         id, role_name
     </sql>
+    <select id="getUserByRole" resultType="com.example.demo.entity.User" parameterType="com.example.demo.entity.User">
+        select * from sys_user where role = #{id} and id != #{userId}
+    </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
@@ -63,7 +58,4 @@
         set role_name = #{roleName,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <select id="getUserByRole" resultMap="BaseResultMap" parameterType="User">
-        select a.* from sys_user a inner join sys_role b on a.role = b.id where b.id = #{id}
-    </select>
 </mapper>

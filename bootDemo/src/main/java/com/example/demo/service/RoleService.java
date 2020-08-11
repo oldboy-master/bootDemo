@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RoleService {
 
-    List<User> getUserByRole(long id);
+    List<User> getUserByRole(Integer id, Integer userId);
 
 //    int addRole(Role role);
 }
