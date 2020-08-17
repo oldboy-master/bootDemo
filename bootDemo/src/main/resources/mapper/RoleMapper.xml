@@ -3,13 +3,20 @@
 <mapper namespace="com.example.demo.mapper.RoleMapper">
     <resultMap id="BaseResultMap" type="com.example.demo.entity.Role">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+        <result column="name" property="roleName" jdbcType="VARCHAR"/>
+        <collection property="users" ofType="com.example.demo.entity.User">
+            <id column="userId" property="id" jdbcType="INTEGER"/>
+            <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+            <result column="real_name" property="realName" jdbcType="VARCHAR"/>
+            <result column="password" property="password" jdbcType="VARCHAR"/>
+            <result column="role" property="role"/>
+        </collection>
     </resultMap>
     <sql id="Base_Column_List">
         id, role_name
     </sql>
-    <select id="getUserByRole" resultType="com.example.demo.entity.User" parameterType="com.example.demo.entity.User">
-        select * from sys_user where role = #{id} and id != #{userId}
+    <select id="getUserByRole" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *,b.id as userId from role a inner join user b on a.id = b.role where a.id = #{id}
     </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select

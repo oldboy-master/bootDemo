@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Role;
 import com.example.demo.entity.User;
 import com.example.demo.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class RoleController {
     RoleService roleService;
 
     @RequestMapping("getUserByRole")
-    public List<User> getUserByRole(int id, int userId) {
-        return roleService.getUserByRole(id, userId);
+    public Role getUserByRole(int id) {
+        return roleService.getUserByRole(id);
     }
 }
