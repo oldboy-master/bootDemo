@@ -20,24 +20,8 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByPrimaryKey(id);
     }
 
-//
-//    @Override
-//    public void addUser(User user) {
-//        userMapper.addUser(user);
-//    }
-//
-//    @Override
-//    public List<User> getAllUser() {
-//        return userMapper.getAllUser();
-//    }
-//
-//    @Override
-//    public void updUser(User user) {
-//        userMapper.updUser(user);
-//    }
-//
-//    @Override
-//    public void delUser(int id) {
-//        userMapper.delUser(id);
-//    }
+    @Override
+    public User getUser(Integer id) {
+        return userMapper.getUser(id);
+    }
 }

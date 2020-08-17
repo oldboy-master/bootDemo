@@ -7,6 +7,10 @@
         <result column="real_name" property="realName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="role" property="role"/>
+        <association property="roles" javaType="com.example.demo.entity.Role">
+            <id column="rolesId" property="id"/>
+            <result column="name" property="roleName"/>
+        </association>
     </resultMap>
     <sql id="Base_Column_List">
         id, user_name, real_name, password
@@ -16,6 +20,9 @@
         <include refid="Base_Column_List"/>
         from user
         where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getUser" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *,b.id as rolesId from user a inner join role b on a.role = b.id where a.id = #{id}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from user

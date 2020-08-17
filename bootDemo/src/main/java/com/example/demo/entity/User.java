@@ -9,6 +9,10 @@ public class User {
 
     private String password;
 
+    private Integer role;
+
+    private Role roles;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +43,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public Role getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Role roles) {
+        this.roles = roles;
     }
 }

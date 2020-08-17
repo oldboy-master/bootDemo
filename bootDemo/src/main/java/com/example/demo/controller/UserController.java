@@ -17,29 +17,9 @@ public class UserController {
     public User selectByPrimaryKey(int id) {
         return userService.selectByPrimaryKey(id);
     }
-//
-//    @RequestMapping("addUser")
-//    public void addUser() {
-//        userService.addUser(new User(1, "a00001", "普通管理员", "123456"));
-//    }
-//
-//    @RequestMapping("getAllUser")
-//    public List<User> getAllUser() {
-//        return userService.getAllUser();
-//    }
-//
-//    @RequestMapping("updUser")
-//    public void updUser() {
-//        User user = new User();
-//        user.setId(4);
-//        user.setUserName("a00001");
-//        user.setRealName("普通管理员");
-//        user.setPassword("111111");
-//        userService.updUser(user);
-//    }
-//
-//    @RequestMapping("delUser")
-//    public void delUser(int id) {
-//        userService.delUser(id);
-//    }
+
+    @RequestMapping("getUser")
+    public User getUser(Integer id) {
+        return userService.getUser(id);
+    }
 }
