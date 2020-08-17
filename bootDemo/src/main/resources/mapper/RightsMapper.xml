@@ -3,16 +3,26 @@
 <mapper namespace="com.example.demo.mapper.RightsMapper">
     <resultMap id="BaseResultMap" type="com.example.demo.entity.Rights">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="rights_name" property="rightsName" jdbcType="VARCHAR"/>
+        <result column="name" property="rightsName" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id, rights_name
+        id, name
     </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
         from rights
         where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getAllRights" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from rights
+        <where>
+            <if test="likeName != null">
+                AND name LIKE CONCAT('%',#{likeName},'%')
+            </if>
+        </where>
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from rights
