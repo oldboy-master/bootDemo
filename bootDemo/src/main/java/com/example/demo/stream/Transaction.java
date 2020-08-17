@@ -1,4 +1,4 @@
-package com.example.demo.lambda;
+package com.example.demo.stream;
 //交易类
 public class Transaction {
 
